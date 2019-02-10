@@ -1,7 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
-#from pydub import AudioSegment
 import scipy.io.wavfile as wav
 import scipy.fftpack
 import scipy
