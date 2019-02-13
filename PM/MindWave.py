@@ -23,11 +23,10 @@ def animate(i) :
         more = raw_input("more or save ? (M : more, S : save) : ")
         
         if more == 'S' :
-            with open('waves.txt', 'w') as w :
-                w.write('[meditation] \n')
-                w.write(str(meditation))
-                w.write('\n')
-
+            with open('BrainWave/BrainWave.csv', 'w') as w :
+                meditation = mediation.split()
+                for i in range(len(meditation)):
+                    w.write(meditation[i]+'\n')
                 w.close()
 
             neuropy.stop()
@@ -37,10 +36,10 @@ def animate(i) :
             t = 0
             return 1
             
-    print("meditation: ", neuropy.meditation)
+    print("meditation : ", neuropy.meditation)
     print("")
-    print("RawValue: " , neuropy.rawValue)
-    print("PoorSignal: " , neuropy.poorSignal)
+    print("RawValue : " , neuropy.rawValue)
+    print("PoorSignal : " , neuropy.poorSignal)
     
     print("=============================")
 
