@@ -89,7 +89,7 @@ def flatness(values):
     idx = []
 
     for i in range(len(values) - 1):
-        if abs(values[i + 1] - prev) > prev * 0.23:
+        if abs(values[i + 1] - prev) > prev * 0.23: # preset: 0.23
             idx.append(i)
             prev = values[i + 1]
         else:

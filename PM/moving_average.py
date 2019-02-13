@@ -1,10 +1,10 @@
 from analyzer_formula import *
 import pandas as pd
 
-dataset = pd.read_csv('BrainWave/BrainWave.csv'); Time_Length = []
-
-exp_moving_average_window = 20
-moving_average_window = 20
+dataset = pd.read_csv('BrainWave\BrainWave.csv'); Time_Length = []
+dataset = dataset.values; dataset = dataset.ravel();print(dataset)
+exp_moving_average_window = 20 # preset: 20
+moving_average_window = 20 # preset: 20
 
 exp_moving_average = ExpMovingAverage(dataset, exp_moving_average_window)
 moving_average = MovingAverage(dataset, moving_average_window)
@@ -37,7 +37,7 @@ plt.plot(aver_Time_Length, aver_graph, 'g', label='OptimalMovingAver')
 plt.legend(loc='upper right')
 plt.show()
 
-arthical_val = 5
+arthical_val = 5 # preset: 5
 
 aver_bar_Time_Length = bar_x_maker(aver_graph, arthical_val)
 aver_graph_bar = bar_y_maker(aver_graph, arthical_val)
