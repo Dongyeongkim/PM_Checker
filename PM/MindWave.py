@@ -37,10 +37,10 @@ def animate(i) :
             t = 0
             return 1
             
-    print("meditation : ", neuropy.meditation)
+    print("meditation: ", neuropy.meditation)
     print("")
-    print("RawValue : " , neuropy.rawValue)
-    print("PoorSignal : " , neuropy.poorSignal)
+    print("RawValue: " , neuropy.rawValue)
+    print("PoorSignal: " , neuropy.poorSignal)
     
     print("=============================")
 
