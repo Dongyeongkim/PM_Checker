@@ -33,7 +33,7 @@ def animate(i):
             neuropy.stop()
             return 0
         
-        elif more == 'M':
+        elif more == 'C':
             t = 0
             
     print 'meditation: {}'.format(neuropy.meditation)
