@@ -3,7 +3,7 @@ import time
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
     
-neuropy = NeuroPy("COM3")
+neuropy = NeuroPy("COM3") # Specify COM Port
 neuropy.start()
     
 fig = plt.figure()
@@ -15,16 +15,17 @@ x_time = []
 
 print("=============================")
 
-def animate(i) :
+def animate(i):
     global t
+    global meditation
     
-    if t ==  300:
+    if t == 300: # preset: 300(sec)
         
-        more = raw_input("more or save ? (M : more, S : save) : ")
+        more = raw_input("Continue or Save? (C: continue, S: save): ")
         
-        if more == 'S' :
-            with open('BrainWave/BrainWave.csv', 'w') as w :
-                meditation = mediation.split()
+        if more == 'S':
+            with open('BrainWave/BrainWave.csv', 'w') as w:
+                meditation = str(meditation);meditation = meditation.split()
                 for i in range(len(meditation)):
                     w.write(meditation[i]+'\n')
                 w.close()
@@ -32,14 +33,13 @@ def animate(i) :
             neuropy.stop()
             return 0
         
-        elif more == 'M' :
+        elif more == 'M':
             t = 0
-            return 1
             
-    print("meditation : ", neuropy.meditation)
-    print("")
-    print("RawValue : " , neuropy.rawValue)
-    print("PoorSignal : " , neuropy.poorSignal)
+    print 'meditation: {}'.format(neuropy.meditation)
+    print ''
+    print 'RawValue: {}'.format(neuropy.rawValue)
+    print 'PoorSignal: {}'.format(neuropy.poorSignal)
     
     print("=============================")
 
@@ -55,12 +55,10 @@ def animate(i) :
 
     t += 1
 
-while True :
+while True:
     ani = animation.FuncAnimation(fig, animate, interval=1000)
     plt.show()
     
-    if ani == 0 :
-        print('exit')
+    if ani == 0:
+        print 'exit'
         break
-
-
