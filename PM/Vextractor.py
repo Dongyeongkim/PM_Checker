@@ -103,7 +103,6 @@ class AcapellaBot:
         console.log("Converted to audio; writing to", outputFileNameBase)
 
         conversion.saveAudioFile(newAudio,'Test_Acapella/'+outputFileNameBase + ".wav", sampleRate)
-        conversion.saveSpectrogram(newSpectrogram, 'Test_Image/'+outputFileNameBase + ".png")
         console.log("Vocal isolation complete")
 
 if __name__ == "__main__":
