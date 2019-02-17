@@ -29,7 +29,7 @@ def animate(i):
                 for i in range(len(meditation)):
                     w.write(meditation[i]+'\n')
                 w.close()
-                print 'The previous data is saved.'
+                print('The previous data is saved.')
 
             neuropy.stop()
             return 0
@@ -37,10 +37,10 @@ def animate(i):
         elif con == 'Y':
             t = 0
             
-    print 'meditation: {}'.format(neuropy.meditation)
-    print ''
-    print 'RawValue: {}'.format(neuropy.rawValue)
-    print 'PoorSignal: {}'.format(neuropy.poorSignal)
+    print('meditation: {}'.format(neuropy.meditation))
+    print('')
+    print('RawValue: {}'.format(neuropy.rawValue))
+    print('PoorSignal: {}'.format(neuropy.poorSignal))
     
     print("=============================")
 
@@ -61,5 +61,5 @@ while True:
     plt.show()
     
     if ani == 0:
-        print 'exit'
+        print('exit')
         break
