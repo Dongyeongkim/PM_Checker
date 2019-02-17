@@ -21,19 +21,20 @@ def animate(i):
     
     if t == 300: # preset: 300(sec)
         
-        more = raw_input("Continue or Save? (C: continue, S: save): ")
+        con = raw_input("Continue (Y/N)? ")
         
-        if more == 'S':
+        if con == 'N':
             with open('BrainWave/BrainWave.csv', 'w') as w:
                 meditation = str(meditation);meditation = meditation.split()
                 for i in range(len(meditation)):
                     w.write(meditation[i]+'\n')
                 w.close()
+                print 'The previous data is saved.'
 
             neuropy.stop()
             return 0
         
-        elif more == 'C':
+        elif con == 'Y':
             t = 0
             
     print 'meditation: {}'.format(neuropy.meditation)
