@@ -8,7 +8,6 @@ Typical usage:
        and saves weights to <new_model_iteration.h5> once complete.
        See data.py for data specifications.
 """
-
 import argparse
 import random, string
 import os
@@ -20,6 +19,7 @@ from keras.models import Model
 import console
 import conversion
 from data import Data
+
 
 
 class AcapellaBot:
@@ -103,6 +103,7 @@ class AcapellaBot:
         console.log("Converted to audio; writing to", outputFileNameBase)
 
         conversion.saveAudioFile(newAudio,'Test_Acapella/'+outputFileNameBase + ".wav", sampleRate)
+        f = open("Test_Acapella/Acapella.txt",'w'); f.write(outputFileNameBase+".wav"); f.close()
         console.log("Vocal isolation complete")
 
 if __name__ == "__main__":
