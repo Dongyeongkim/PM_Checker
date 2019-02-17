@@ -81,8 +81,7 @@ class AcapellaBot:
         console.log("Converted to audio; writing to", outputFileNameBase)
 
         conversion.saveAudioFile(newAudio,'Test_Acapella/'+outputFileNameBase + ".wav", sampleRate)
-        conversion.saveSpectrogram(newSpectrogram, 'Test_Image/'+outputFileNameBase + ".png")
         console.log("Vocal isolation complete")
 
-f = open("Test_Music/Music.txt",'r');path = f.read()
-isolateVocals(path,1536)
+f = open("Test_Music/Music.txt",'r');path = f.read();Vextractor = AcapellaBot();
+Vextractor.isolateVocals(path,1536)
