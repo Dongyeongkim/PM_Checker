@@ -8,7 +8,7 @@ for i in range(len(Music1)):
         continue
     else:
        Vocal_Percentage = (Acapella1/Music1)*100
-       print(Vocal_Percentage)
+       print(Vocal_Percentage+"%")
         
 
 
