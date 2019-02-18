@@ -21,7 +21,7 @@ def animate(i):
     
     if t == 300: # preset: 300(sec)
         
-        con = raw_input("Continue (Y/N)? ")
+        con = input("Continue (Y/N)? ")
         
         if con == 'N':
             with open('BrainWave/BrainWave.csv', 'w') as w:
