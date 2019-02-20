@@ -88,8 +88,8 @@ rate, aud_data = wav.read('havana.wav')
 aver_frequency = []
 aver_std = []
 
-start_dur = 100
-end_dur = 101
+start_dur = 0
+end_dur = 100
 
 #N = len(aud_data)
 #secs = N / float(rate)
