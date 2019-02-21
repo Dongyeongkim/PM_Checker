@@ -8,14 +8,13 @@ Typical usage:
        and saves weights to <new_model_iteration.h5> once complete.
        See data.py for data specifications.
 """
-
-import argparse
-import random, string
 import os
-
 import numpy as np
 from keras.layers import Input, Conv2D, MaxPooling2D, BatchNormalization, UpSampling2D, Concatenate
 from keras.models import Model
+import sys
+# add system path for console, conversion and data.py
+sys.path.insert(0, 'M_Vex/')
 
 import console
 import conversion
