@@ -9,12 +9,12 @@ class B_Music_Elements():
               spf = wave.open('Test_Music/'+self.Music_Name+'.wav','r');signal = spf.readframes(-1)
               self.signal = np.fromstring(signal, 'Int16');self.Fs = spf.getframerate();
        def Tempo(self):
-              Time=np.linspace(0, len(signal)/self.Fs, num=len(signal))
+              Time=np.linspace(0, len(self.signal)/self.Fs, num=len(self.signal))
               y, sr = librosa.load("Test_Music/"+self.Music_Name+'.wav')
               tempo, beat_frames = librosa.beat.beat_track(y=y,sr=sr)
               return tempo
        def FrQ(self):
-              Time=np.linspace(0, len(signal)/self.Fs, num=len(self.signal))
+              Time=np.linspace(0, len(self.signal)/self.Fs, num=len(self.signal))
               n=len(self.signal);NFFT=n;k=np.arange(NFFT);f0=k*self.Fs/NFFT
               f0=f0[range(math.trunc(NFFT/2))];return f0
        def Amp(self):
