@@ -1,13 +1,4 @@
-"""
-Acapella extraction with a CNN
-Typical usage:
-    python acapellabot.py song.wav
-    => Extracts acapella from <song.wav> to <song (Acapella Attempt).wav> using default weights
-    python acapellabot.py --data input_folder --batch 32 --weights new_model_iteration.h5
-    => Trains a new model based on song/acapella pairs in the folder <input_folder>
-       and saves weights to <new_model_iteration.h5> once complete.
-       See data.py for data specifications.
-"""
+
 import os
 import numpy as np
 from keras.layers import Input, Conv2D, MaxPooling2D, BatchNormalization, UpSampling2D, Concatenate
@@ -23,7 +14,7 @@ from data import Data
 
 class AcapellaBot:
     def __init__(self):
-        mashup = Input(shape=(None,None, 1), name='input')
+        mashup = Input(shape=(None, None, 1), name='input')
         convA = Conv2D(64, 3, activation='relu', padding='same')(mashup)
         conv = Conv2D(64, 4, strides=2, activation='relu', padding='same', use_bias=False)(convA)
         conv = BatchNormalization()(conv)
@@ -32,8 +23,8 @@ class AcapellaBot:
         conv = Conv2D(64, 4, strides=2, activation='relu', padding='same', use_bias=False)(convB)
         conv = BatchNormalization()(conv)
 
-        conv = Conv2D(128, 3, activation='relu', padding='same')(conv)
-        conv = Conv2D(128, 3, activation='relu', padding='same', use_bias=False)(conv)
+        convC = Conv2D(128, 3, activation='relu', padding='same')(conv)
+        conv = Conv2D(128, 3, activation='relu', padding='same', use_bias=False)(convC)
         conv = BatchNormalization()(conv)
         conv = UpSampling2D((2, 2))(conv)
 
@@ -47,6 +38,8 @@ class AcapellaBot:
         conv = Conv2D(64, 3, activation='relu', padding='same')(conv)
         conv = Conv2D(64, 3, activation='relu', padding='same')(conv)
         conv = Conv2D(32, 3, activation='relu', padding='same')(conv)
+        conv = Conv2D(1, 3, activation='relu', padding='same')(conv)
+        conv = Concatenate()([conv,convC])
         conv = Conv2D(1, 3, activation='relu', padding='same')(conv)
         acapella = conv
         m = Model(inputs=mashup, outputs=acapella)
